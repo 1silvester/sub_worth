@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SubWorth</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link th:rel="stylesheet" th:href="@{assets/bootstrap-slider/css/bootstrap-slider.css}"/>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">SubWorth</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container w-auto">
+<div>
+    <p>
+        Hello
+        <a th:text="${clientName}"></a>. Welcome to SubWorth
+    </p>
+</div>
+
+
+<table class="table table-dark w-auto table-responsive">
+<thead>
+<tr>
+    <th scope="col">Subscription</th>
+    <th scope="col">Cost</th>
+</tr>
+</thead>
+    <tbody>
+    <tr th:each = "sub: ${subs}">
+        <td th:text = "${sub.key}"/>
+        <td th:text = "${sub.value}"/>
+    </tr>
+    </tbody>
+</table>
+
+</div>
+
+<!--<div class="container float-right">-->
+
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <h2 class="mt-5">How many hours per month on each sub</h2>-->
+
+<!--            <form method="post" th:object="${hoursOnSub}">-->
+<!--                <div class="ml-2">-->
+<!--                    <div class="form-group mt-3">-->
+<!--                        <input id="netflix" type="text" th:field="*{netfilx}" data-slider-min="1" data-slider-max="10"-->
+<!--                               data-slider-step="1"-->
+<!--                               data-slider-value="1" class="skill"/>-->
+<!--                        <span class="ml-2">Netflix: <strong id="netflixVal">1</strong></span>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group mt-3">-->
+<!--                        <input id="disneyplus" type="text" th:field="*{disneyplus}" data-slider-min="1" data-slider-max="10"-->
+<!--                               data-slider-step="1"-->
+<!--                               data-slider-value="1" class="skill"/>-->
+<!--                        <span class="ml-2">Disney Plus: <strong id="disneyplusVal">1</strong></span>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group mt-3">-->
+<!--                        <input id="amazonprime" type="text" th:field="*{amazonprime}" data-slider-min="1" data-slider-max="10"-->
+<!--                               data-slider-step="1"-->
+<!--                               data-slider-value="1" class="skill"/>-->
+<!--                        <span class="ml-2">Amazon Prime: <strong id="amazonprimeVal">1</strong></span>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group mt-3">-->
+<!--                        <input id="roku" type="text" th:field="*{roku}" data-slider-min="1" data-slider-max="10"-->
+<!--                               data-slider-step="1"-->
+<!--                               data-slider-value="1" class="skill"/>-->
+<!--                        <span class="ml-2">Roku: <strong id="rokuVal">1</strong></span>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group mt-3">-->
+<!--                        <input id="cineworld" type="text" th:field="*{cineworld}" data-slider-min="1" data-slider-max="10"-->
+<!--                               data-slider-step="1"-->
+<!--                               data-slider-value="1" class="skill"/>-->
+<!--                        <span class="ml-2">CineWorld: <strong id="cineworldVal">1</strong></span>-->
+<!--                    </div>-->
+
+<!--&lt;!&ndash;                    <div class="form-group mt-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input id="go" type="text" th:field="*{go}" data-slider-min="1" data-slider-max="10"&ndash;&gt;-->
+<!--&lt;!&ndash;                               data-slider-step="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                               data-slider-value="1" class="skill"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <span class="ml-2">Go: <strong id="goVal">1</strong></span>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                </div>-->
+
+<!--                <button class="btn btn-primary" type="submit">Submit form</button>-->
+<!--            </form>-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<script th:src="@{/webjars/jquery/jquery.min.js}"></script>-->
+<!--<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>-->
+<!--<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>-->
+<!--<script th:rel="stylesheet" th:src="@{assets/bootstrap-slider/bootstrap-slider.js}"></script>-->
+
+<!--<script>-->
+<!--    $(".skill").slider();-->
+<!--    $(".skill").on("slide", function (slideEvt) {-->
+<!--        $("#" + slideEvt.target.id + "Val").text(slideEvt.value);-->
+<!--    });-->
+<!--    $(".skill").on("change", function (slideEvt) {-->
+<!--        $("#" + slideEvt.target.id + "Val").text(slideEvt.value.newValue);-->
+<!--    });-->
+<!--</script>-->
+<!--<div>-->
+<!--    <canvas id="pieChart" style="max-width: 500px;"></canvas>-->
+<!--</div>-->
+
+
+
+<!--<script type="text/javascript">-->
+<!--  var ctxP = document.getElementById("pieChart").getContext('2d');-->
+<!--    var myPieChart = new Chart(ctxP, {-->
+<!--      type: 'pie',-->
+<!--      data: {-->
+<!--        labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],-->
+<!--        datasets: [{-->
+<!--          data: [300, 50, 100, 40, 120],-->
+<!--          backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],-->
+<!--          hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]-->
+<!--        }]-->
+<!--      },-->
+<!--      options: {-->
+<!--        responsive: true-->
+<!--      }-->
+<!--    });-->
+
+<!--</script>-->
+
+</body>
+</html>
